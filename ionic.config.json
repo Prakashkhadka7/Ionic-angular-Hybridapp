@@ -1,0 +1,7 @@
+{
+  "name": "inspirationApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
