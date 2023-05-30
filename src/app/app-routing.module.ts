@@ -10,7 +10,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'inspiration-list',
+    loadChildren: () => import('./inspiration-list/inspiration-list.module').then( m => m.InspirationListPageModule)
   },
+  {
+    path: 'inspiration-detail',
+    loadChildren: () => import('./inspiration-detail/inspiration-detail.module').then( m => m.InspirationDetailPageModule)
+  },
+
 ];
 
 @NgModule({
