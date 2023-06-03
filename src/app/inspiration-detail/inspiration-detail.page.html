@@ -1,13 +1,43 @@
-<ion-header [translucent]="true">
+<!-- inspiration-details.component.html -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>inspiration-detail</ion-title>
+    <ion-title>
+      Inspiration Details
+    </ion-title>
+    <ion-buttons slot="end">
+      <img (click)="presentPopover($event)" [src]="this.userImage" alt="user-image" class="profile-image">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inspiration-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        <h2>{{ isEditing ? 'Edit Inspiration' : 'New Inspiration' }}</h2>
+      </ion-card-title>
+
+      <form [formGroup]="inspirationForm" (ngSubmit)="saveInspiration()">
+        <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input type="text" formControlName="title" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-textarea formControlName="description" required></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Image URL</ion-label>
+          <ion-input type="text" formControlName="image"></ion-input>
+        </ion-item>
+
+        <div class="ion-padding-top">
+          <ion-button expand="full" type="submit">{{ isEditing ? 'Update' : 'Create' }}</ion-button>
+          <ion-button expand="full" color="medium" (click)="cancelEditing()">Cancel</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
+<!-- inspiration-list.component.html -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>inspiration-list</ion-title>
+    <ion-title>
+      Inspirations
+    </ion-title>
+    <ion-buttons slot="end">
+      <img (click)="presentPopover($event)" [src]="this.userImage" alt="user-image" class="profile-image">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inspiration-list</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-row class="ion-no-padding">
+    <ion-col class="ion-no-padding" size-md="3">
+      <ion-button expand="block" (click)="createInspiration()">Create
+        Inspiration</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let inspiration of inspirations" (click)="viewInspirationDetails(inspiration)">
+      <ion-thumbnail slot="start">
+        <img [src]="inspiration.imageUrl" alt="Inspiration Image">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ inspiration.title }}</h2>
+        <p>{{ inspiration.description }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="deleteInspiration(inspiration)"><ion-icon
+          name="trash-outline"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+    <ng-template>
+      <ion-content class="ion-padding">Hello World!</ion-content>
+    </ng-template>
+  </ion-popover>
 </ion-content>

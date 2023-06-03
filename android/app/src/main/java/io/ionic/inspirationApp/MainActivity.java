@@ -1,4 +1,4 @@
-package com.devdactic.capalogin;
+package io.ionic.inspirationApp;
 
 import android.os.Bundle;
 
@@ -18,5 +18,8 @@ public class MainActivity extends BridgeActivity {
       // Additional plugins you've installed go here
       add(GoogleAuth.class);
     }});
+  }
+
+  private void init(Bundle savedInstanceState, ArrayList<Class<? extends Plugin>> classes) {
   }
 }

@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Inspiration App</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button (click)="signInWithGoogle()">Login with Google</ion-button>
+<ion-content class="ion-padding">
+  <div class="container">
+    <ion-img class="logo" src="../../assets/logo-sample.jpg"></ion-img>
+    <h2 class="ion-text-center">Welcome to Inspiration App</h2>
+    <ion-button (click)="loginWithGoogle()" class="signin-button">
+      <ion-icon name="logo-google"></ion-icon>
+      Sign In with Google
+    </ion-button>
+  </div>
 </ion-content>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -7,16 +7,22 @@ import { AuthService } from '../services/auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  constructor(private authService: AuthService) {}
+export class HomePage implements OnInit {
+  userAccessToken!: string;
+  userId!: string;
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    if (this.authService.userValue) {
+      this.router.navigate(['/inspiration-list']);
+    }
+  }
 
   loginWithFacebook() {
     // Implement Facebook login logic using the authService
   }
 
-  async signInWithGoogle() {
-    // GoogleAuth.init(); // or await GoogleAuth.init()
-    const googleUser = await GoogleAuth.signIn();
-    console.log('my user: ', googleUser);
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
   }
 }

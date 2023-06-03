@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -12,9 +12,10 @@ import { InspirationDetailPage } from './inspiration-detail.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
-    InspirationDetailPageRoutingModule
+    InspirationDetailPageRoutingModule,
   ],
-  declarations: [InspirationDetailPage]
+  declarations: [InspirationDetailPage],
 })
 export class InspirationDetailPageModule {}
