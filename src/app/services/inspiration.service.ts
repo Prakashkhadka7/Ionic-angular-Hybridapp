@@ -38,7 +38,7 @@ export class InspirationService {
     let InspirationList = sessionStorage.getItem('inspirationList')
       ? JSON.parse(sessionStorage.getItem('inspirationList'))
       : [];
-    InspirationList.push(data);
+    // InspirationList.push(data);
 
     const index = InspirationList.findIndex((item) => item.id === id);
     if (index !== -1) {
@@ -47,7 +47,7 @@ export class InspirationService {
     sessionStorage.setItem('inspirationList', JSON.stringify(InspirationList));
   }
 
-  getInspirationDetails(id: number) {
+  getInspirationDetails(id: string) {
     let InspirationList = sessionStorage.getItem('inspirationList')
       ? JSON.parse(sessionStorage.getItem('inspirationList'))
       : [];
@@ -62,6 +62,7 @@ export class InspirationService {
     if (index !== -1) {
       InspirationList.splice(index, 1);
     }
+    sessionStorage.setItem('inspirationList', JSON.stringify(InspirationList));
   }
 
   async presentPopover(ev: any) {

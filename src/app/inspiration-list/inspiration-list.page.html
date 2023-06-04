@@ -19,7 +19,7 @@
   </ion-row>
 
   <ion-list>
-    <ion-item *ngFor="let inspiration of inspirations" (click)="viewInspirationDetails(inspiration)">
+    <ion-item *ngFor="let inspiration of inspirations">
       <ion-thumbnail slot="start">
         <img [src]="inspiration.imageUrl" alt="Inspiration Image">
       </ion-thumbnail>
@@ -27,14 +27,11 @@
         <h2>{{ inspiration.title }}</h2>
         <p>{{ inspiration.description }}</p>
       </ion-label>
+      <ion-button slot="end" (click)="viewInspirationDetails(inspiration)">View details</ion-button>
       <ion-button slot="end" (click)="deleteInspiration(inspiration)"><ion-icon
           name="trash-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
 
-  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
-    <ng-template>
-      <ion-content class="ion-padding">Hello World!</ion-content>
-    </ng-template>
-  </ion-popover>
+
 </ion-content>

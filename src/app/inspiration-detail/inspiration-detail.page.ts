@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 import { Inspiration } from '../interfaces/inspiration.interface';
 import { InspirationService } from '../services/inspiration.service';
 
@@ -87,14 +88,13 @@ export class InspirationDetailPage implements OnInit {
       );
     } else {
       const newInspiration: Inspiration = {
-        id: Math.random(), // Generate a unique ID (you may use your own logic)
+        id: uuidv4(), // Generate a unique ID (you may use your own logic)
         title: formValues.title,
         description: formValues.description,
         image: formValues.image,
       };
       this.inspirationService.createInspiration(newInspiration);
     }
-
     this.router.navigate(['/inspiration-list']);
   }
   cancelEditing(): void {

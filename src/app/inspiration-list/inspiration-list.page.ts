@@ -51,5 +51,6 @@ export class InspirationListPage implements OnInit {
 
   deleteInspiration(inspiration) {
     this.inspirationService.deleteInspiration(inspiration.id);
+    this.loadInspirations();
   }
 }
