@@ -6,7 +6,7 @@ npm install
 
 Run the project locally in browser.
 ```
-ng serve
+ionic serve
 ```
 
 Run the project locally in with USB debugging in android.
