@@ -44,7 +44,8 @@ export class AuthService {
     }
   }
 
-  logout() {
+  async logout() {
+    await GoogleAuth.signOut();
     // Implement the logout logic and set isLoggedIn to false.
     this.isLoggedIn = false;
     sessionStorage.setItem('loggedIn', 'false');
